@@ -12,154 +12,87 @@
     body {
       min-height: 100vh;
       background: #000000;
-      overflow-x: hidden;
-      font-family: 'Segoe UI', sans-serif;
-      color: #ffffff;
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 1rem;
     }
     .stars {
       position: fixed;
       inset: 0;
       pointer-events: none;
-      z-index: 1;
     }
     .star {
       position: absolute;
       background: #ffffff;
       border-radius: 50%;
-      opacity: 0.7;
-      animation: twinkle 4s infinite alternate;
-      box-shadow: 0 0 12px #ffffff, 0 0 24px #ffffff33;
+      opacity: 0.5;
+      animation: twinkle 6s infinite alternate;
     }
     @keyframes twinkle {
-      0% { opacity: 0.5; transform: scale(0.8); }
-      100% { opacity: 1; transform: scale(1.3); }
+      0% { opacity: 0.3; }
+      100% { opacity: 0.8; }
     }
-    .card {
-      position: relative;
-      width: 580px;
-      max-width: 100%;
-      padding: 2rem;
-      background: #0a0a0a;
-      border-radius: 16px;
-      border: 1px solid #33333355;
-      box-shadow: 
-        inset 0 0 40px rgba(255,255,255,0.06),
-        0 0 60px rgba(255,255,255,0.12),
-        0 0 100px rgba(255,255,255,0.05);
-      z-index: 10;
+    .container {
       display: flex;
       align-items: center;
-      gap: 2.5rem;
-    }
-    .pfp-container {
-      flex-shrink: 0;
-      width: 140px;
-      height: 140px;
+      gap: 1.2rem;
+      z-index: 10;
+      max-width: 90%;
     }
     .pfp {
-      width: 100%;
-      height: 100%;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       object-fit: cover;
-      border: 1.1rem solid #444444;
+      background: white;
       box-shadow: 
-        0 0 0 12px rgba(255,255,255,0.18),
-        0 0 50px rgba(255,255,255,0.35),
-        inset 0 0 25px rgba(255,255,255,0.15);
+        0 0 15px rgba(255,255,255,0.9),
+        0 0 30px rgba(255,255,255,0.7),
+        0 0 50px rgba(255,255,255,0.5);
     }
     .name {
-      font-size: 2.8rem;
-      font-weight: 900;
+      font-size: 1.5rem;
+      font-weight: 700;
       color: #ffffff;
-      text-shadow: 
-        0 0 15px #ffffff,
-        0 0 30px #ffffffaa,
-        0 0 60px #ffffff55;
-      animation: name-glow 4s infinite alternate;
-      letter-spacing: 1.2px;
-      text-align: center;
-    }
-    @keyframes name-glow {
-      0% { text-shadow: 0 0 15px #ffffff, 0 0 30px #ffffff88, 0 0 60px #ffffff33; }
-      100% { text-shadow: 0 0 25px #ffffff, 0 0 50px #ffffffcc, 0 0 90px #ffffff66; }
+      text-shadow: 0 0 12px rgba(255,255,255,0.6);
+      letter-spacing: 0.5px;
+      white-space: nowrap;
     }
     .icons {
       display: flex;
-      gap: 1.8rem;
-      margin-top: 1.8rem;
-      justify-content: center;
+      gap: 1.4rem;
     }
     .icon-link {
-      font-size: 2.4rem;
-      color: #eeeeee;
-      text-shadow: 
-        0 0 14px rgba(255,255,255,0.9),
-        0 0 28px rgba(255,255,255,0.6),
-        0 0 45px rgba(255,255,255,0.4);
+      font-size: 1.6rem;
+      color: #dddddd;
+      text-shadow: 0 0 10px rgba(255,255,255,0.5);
       transition: all 0.3s;
     }
     .icon-link:hover {
-      transform: scale(1.35);
-      text-shadow: 
-        0 0 20px #ffffff,
-        0 0 40px #ffffff,
-        0 0 70px #ffffffaa;
-    }
-    .shooting-star {
-      position: fixed;
-      width: 5px;
-      height: 110px;
-      background: linear-gradient(transparent, #ffffff, transparent);
-      opacity: 0;
-      animation: shoot 10s infinite linear;
-      transform: rotate(35deg);
-      z-index: 1;
-      box-shadow: 0 0 25px rgba(255,255,255,0.8);
-    }
-    @keyframes shoot {
-      0%   { transform: translateX(-150vw) translateY(-150vh) rotate(35deg); opacity: 0; }
-      5%   { opacity: 1; }
-      20%  { opacity: 0; }
-      100% { transform: translateX(150vw) translateY(150vh) rotate(35deg); opacity: 0; }
+      transform: scale(1.25);
+      text-shadow: 0 0 18px #ffffff;
     }
 
-    @media (max-width: 680px) {
-      body { padding: 1rem 0.5rem; align-items: flex-start; }
-      .card {
+    @media (max-width: 600px) {
+      .container {
         flex-direction: column;
-        width: 92%;
-        padding: 2rem 1.6rem;
-        gap: 1.8rem;
-        border-radius: 20px;
+        gap: 1rem;
+        text-align: center;
       }
-      .pfp-container { width: 110px; height: 110px; }
-      .name { font-size: 2.4rem; }
-      .icons { gap: 1.6rem; }
-      .icon-link { font-size: 2.2rem; }
-    }
-
-    @media (max-width: 420px) {
-      .card { padding: 1.8rem 1.2rem; gap: 1.6rem; }
-      .name { font-size: 2.1rem; }
-      .icons { gap: 1.3rem; }
-      .icon-link { font-size: 2rem; }
+      .pfp { width: 48px; height: 48px; }
+      .name { font-size: 1.4rem; }
+      .icons { gap: 1.2rem; justify-content: center; }
+      .icon-link { font-size: 1.5rem; }
     }
   </style>
 </head>
 <body>
   <div class="stars" id="stars"></div>
 
-  <div class="card">
-    <div class="pfp-container">
-      <img class="pfp" src="/pfp.webp" alt="whistro" />
-    </div>
-
+  <div class="container">
+    <img class="pfp" src="/pfp.webp" alt="whistro" />
     <div class="name">whistro</div>
-
     <div class="icons">
       <a href="https://www.youtube.com/@lovetowhis" class="icon-link" target="_blank"><i class="fab fa-youtube"></i></a>
       <a href="https://in.pinterest.com/whistro/" class="icon-link" target="_blank"><i class="fab fa-pinterest"></i></a>
@@ -168,19 +101,15 @@
     </div>
   </div>
 
-  <div class="shooting-star" style="top:10%; left:-25%; animation-delay:0s;"></div>
-  <div class="shooting-star" style="top:35%; left:-15%; animation-delay:3s;"></div>
-  <div class="shooting-star" style="top:65%; left:-30%; animation-delay:6s;"></div>
-
   <script>
     const starsContainer = document.getElementById('stars');
-    for (let i = 0; i < 160; i++) {
+    for (let i = 0; i < 100; i++) {
       const star = document.createElement('div');
       star.className = 'star';
-      star.style.width = star.style.height = Math.random() * 4 + 'px';
+      star.style.width = star.style.height = Math.random() * 2.5 + 'px';
       star.style.top = Math.random() * 100 + '%';
       star.style.left = Math.random() * 100 + '%';
-      star.style.animationDelay = Math.random() * 6 + 's';
+      star.style.animationDelay = Math.random() * 5 + 's';
       starsContainer.appendChild(star);
     }
   </script>
